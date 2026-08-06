@@ -42,5 +42,23 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Arbital Health is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Arbital Health builds the neutral third-party infrastructure for adjudicating outcomes-based
+(value-based care) contracts between payers, providers, employers, risk-bearing entities and
+point-solution vendors. Its platform centralizes risk contracts, ingests and validates claims and
+eligibility data, runs actuarial calculations (IBNR, MLR, benchmarks, attribution), predicts and
+monitors contract performance, and adjudicates settlement between the parties.
+
+- Website: https://arbitalhealth.com
+- Platform login: https://platform.arbitalhealth.com/
+- Security trust center: https://security.arbitalhealth.com/
+
+## API surface
+
+Arbital Health publishes **no public developer program** — no developer portal, no API reference,
+and no machine-readable contract (OpenAPI, AsyncAPI, GraphQL SDL, or Postman collection) at any
+public URL. A real JSON API exists behind the customer platform: `https://platform.arbitalhealth.com/api`
+answers `401 {"error":"Unauthorized"}` on every resource path (only `/api/health` is anonymously
+readable, `200`), with access brokered through a PropelAuth-backed OpenID Connect tenant at
+`https://auth.arbitalhealth.com`.
+
+See `apis.yml` → `x-coverage` for the probed evidence.

@@ -1,0 +1,82 @@
+generated: '2026-08-06'
+method: probed
+source: >-
+  https://auth.arbitalhealth.com/.well-known/openid-configuration +
+  https://security.arbitalhealth.com/
+note: >-
+  Arbital Health publishes no OpenAPI, AsyncAPI, GraphQL SDL or Postman collection,
+  so nothing here is derived from a machine-readable contract. Every assertion below
+  is grounded in a document that was actually fetched: the live OIDC discovery
+  document on the identity host, and the SafeBase trust center.
+standards:
+- id: openid-connect-discovery
+  conforms: true
+  evidence: >-
+    https://auth.arbitalhealth.com/.well-known/openid-configuration returns 200
+    application/json with issuer, authorization_endpoint, token_endpoint,
+    userinfo_endpoint and jwks_uri.
+- id: oauth2-authorization-code
+  conforms: true
+  evidence: grant_types_supported=[authorization_code], response_types_supported=[code]
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported=[S256]
+- id: rfc7517-jwks
+  conforms: true
+  evidence: https://auth.arbitalhealth.com/.well-known/jwks.json returns 200 with an
+    RS256 signing key set.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server returns 404.
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: false
+  evidence: /.well-known/oauth-protected-resource returns 404.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on every Arbital Health host.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    The platform API's anonymous error envelope is {"error":"Unauthorized"} with
+    content-type application/json — not application/problem+json.
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI at any probed location on arbitalhealth.com,
+    platform.arbitalhealth.com or auth.arbitalhealth.com; the platform's
+    /api/openapi.json is auth-gated (401).
+- id: fhir
+  conforms: false
+  evidence: No FHIR surface published or claimed.
+- id: hl7-x12
+  conforms: false
+  evidence: >-
+    The platform ingests claims and eligibility files, but no interchange standard
+    (X12 837/834/835, HL7 v2, FHIR) is named in public material.
+compliance:
+- id: soc2-type2
+  conforms: true
+  evidence: https://security.arbitalhealth.com/ — SOC 2 Type 2, auditor Linford and
+    Company, LLP.
+- id: hitrust-i1
+  conforms: true
+  evidence: https://security.arbitalhealth.com/ — HITRUST i1, auditor Linford and
+    Company, LLP.
+- id: hipaa
+  conforms: partial
+  evidence: >-
+    HIPAA is named as a framework the security program is built against on the trust
+    center; no separate HIPAA attestation or BAA document is published.
+x-evidence:
+  fetched: '2026-08-06'
+  probes:
+  - url: https://auth.arbitalhealth.com/.well-known/openid-configuration
+    status: 200
+  - url: https://auth.arbitalhealth.com/.well-known/jwks.json
+    status: 200
+  - url: https://security.arbitalhealth.com/
+    status: 200
+  - url: https://platform.arbitalhealth.com/api/v1
+    status: 401
+  - url: https://arbitalhealth.com/openapi.json
+    status: 404

@@ -1,0 +1,71 @@
+generated: '2026-08-06'
+method: searched
+probe: true
+source: https://security.arbitalhealth.com/
+url: https://security.arbitalhealth.com/
+platform: SafeBase
+certifications:
+- name: SOC 2 Type 2
+  auditor: Linford and Company, LLP
+  status: current
+  report_access: request (gated document on the trust center)
+- name: HITRUST i1
+  auditor: Linford and Company, LLP
+  status: current
+  report_access: request (gated document on the trust center)
+frameworks_referenced:
+- SOC 2
+- HITRUST
+- HIPAA
+documents:
+- name: SOC 2 Report
+  access: request
+- name: Pentest Report
+  access: request
+controls_published:
+- Anti-Malware
+- Disk Encryption
+- Endpoint Detection & Response
+- Application Penetration Testing
+- Code Analysis
+- Credential Management
+- Environment Separation
+- Network Access Authentication
+- Secure Protocols / Encryption in Transit
+- Access Monitoring
+- Access Log Management
+- Audit Logging
+- Data Asset Classification
+- Certificates of Destruction
+- Device Lock
+- Internal Single Sign-On (SSO)
+- Multi-Factor Authentication
+- Vulnerability & Patch Management
+- Secure Development Training
+- Phishing Training
+- Security Awareness Training
+- Incident Response Policy / Procedure
+- Business Continuity Plan
+- Risk Assessments
+- Change Management Program
+- Configuration Management Program
+- Separation of Duties
+recovery_objectives:
+  rto: 48 hours
+  rpo: 48 hours
+security_contact: security@arbitalhealth.com
+evidence:
+- source: https://security.arbitalhealth.com/
+  http_status: 200
+  keywords:
+  - soc 2 type 2
+  - hitrust
+  - hipaa
+  - trust center
+  - responsible disclosure
+  - penetration testing
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://security.arbitalhealth.com/
+  http_status: 200
+  content_type: text/html

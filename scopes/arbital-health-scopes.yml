@@ -1,0 +1,34 @@
+generated: '2026-08-06'
+method: probed
+source: https://auth.arbitalhealth.com/.well-known/openid-configuration
+docs: null
+note: >-
+  Arbital Health publishes no OpenAPI, so there is no operation-level scope surface
+  to derive. The only scopes it advertises anywhere publicly are the three standard
+  OpenID Connect scopes in its PropelAuth discovery document. No application or
+  resource scopes (read:contracts, write:adjudication, …) are published — any such
+  scopes exist only inside the customer tenant.
+schemes:
+- name: propelauth-oidc
+  source: well-known/arbital-health-openid-configuration.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.arbitalhealth.com/propelauth/oauth/authorize
+    tokenUrl: https://auth.arbitalhealth.com/propelauth/oauth/token
+scopes:
+- scope: openid
+  description: Standard OpenID Connect scope — request an ID token.
+  flows: [authorizationCode]
+  sources: [well-known/arbital-health-openid-configuration.json]
+- scope: email
+  description: Release the user's email address and email_verified claim.
+  flows: [authorizationCode]
+  sources: [well-known/arbital-health-openid-configuration.json]
+- scope: profile
+  description: Release basic profile claims (first_name, last_name, picture_url).
+  flows: [authorizationCode]
+  sources: [well-known/arbital-health-openid-configuration.json]
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://auth.arbitalhealth.com/.well-known/openid-configuration
+  http_status: 200

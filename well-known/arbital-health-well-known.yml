@@ -1,0 +1,80 @@
+generated: '2026-08-06'
+method: probed
+source: https://auth.arbitalhealth.com/.well-known/openid-configuration
+summary: >-
+  Arbital Health publishes no /.well-known/ surface on its marketing host
+  (arbitalhealth.com) or on its customer platform host. The only real discovery
+  documents live on auth.arbitalhealth.com, the PropelAuth-backed identity tenant
+  that fronts the platform: an OpenID Connect discovery document and its JWKS.
+hosts:
+- host: https://auth.arbitalhealth.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: arbital-health-openid-configuration.json
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json
+    file: arbital-health-jwks.json
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://arbitalhealth.com
+  note: >-
+    HubSpot CMS marketing site — every /.well-known/* path returns the site's
+    HTML 404 page.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://platform.arbitalhealth.com
+  note: >-
+    Customer application. Every /.well-known/* path answers 307 to / (the login
+    redirect), so nothing is served from the well-known namespace.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 307
+  - path: /.well-known/oauth-protected-resource
+    status: 307
+  - path: /.well-known/security.txt
+    status: 307
+  - path: /.well-known/agent-card.json
+    status: 307
+  - path: /.well-known/agent.json
+    status: 307
+- host: https://security.arbitalhealth.com
+  note: SafeBase-hosted trust center.
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+x-evidence:
+  fetched: '2026-08-06'
+  probed_hosts:
+  - arbitalhealth.com
+  - www.arbitalhealth.com
+  - platform.arbitalhealth.com
+  - auth.arbitalhealth.com
+  - security.arbitalhealth.com

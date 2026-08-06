@@ -1,18 +1,67 @@
 aid: arbital-health
 name: Arbital Health
-description: 'Arbital Health is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Arbital Health is a healthcare technology and actuarial-services company
+  building the neutral third-party infrastructure for adjudicating outcomes-based
+  (value-based care) contracts between payers, providers, employers, risk-bearing
+  entities and point-solution vendors. Its cloud platform centralizes risk contracts,
+  ingests and validates claims and eligibility data, runs actuarial calculations
+  (IBNR, MLR, benchmarks, attribution), predicts and monitors contract performance,
+  and adjudicates settlement between the parties. Product lines include the Adjudication
+  Platform, ATLAS, Merlin AI, and Arbital Flex — a self-serve actuarial AI tool for
+  payors and providers — alongside a traditional actuarial consulting practice built
+  on the acquired Santa Barbara Actuaries team. The company launched in 2024, raised
+  a $10M Series A led by Transformation Capital, and holds SOC 2 Type 2 and HITRUST
+  i1 certification.'
+image: https://44728686.fs1.hubspotusercontent-na1.net/hubfs/44728686/Arbital_Logo_Full_Color_KO_rgb_022124.png
 url: https://raw.githubusercontent.com/api-evangelist/arbital-health/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
-apis: []
+- Healthcare
+- Health Insurance
+- Value-Based Care
+- Actuarial
+- Claims
+- Payers
+- Providers
+- Analytics
+- Artificial Intelligence
+apis:
+- aid: arbital-health:platform-api
+  name: Arbital Health Platform API
+  description: 'The JSON API behind the Arbital Health adjudication platform at
+    platform.arbitalhealth.com. Observed live and returning JSON, but every resource
+    path answers 401 {"error":"Unauthorized"} to an anonymous caller and no public
+    reference, OpenAPI or developer portal is published. Only /api/health is
+    anonymously readable. Access is customer-only, brokered through the platform''s
+    PropelAuth-backed OpenID Connect tenant at auth.arbitalhealth.com.'
+  humanURL: https://arbitalhealth.com/adjudication-platform
+  baseURL: https://platform.arbitalhealth.com/api
+  tags:
+  - Healthcare
+  - Value-Based Care
+  - Claims
+  - Contracts
+  x-access: customer-only
+  x-evidence:
+    fetched: '2026-08-06'
+    probes:
+    - url: https://platform.arbitalhealth.com/api/health
+      status: 200
+      note: '{"status":"healthy","timestamp":"..."} — the only anonymous 200'
+    - url: https://platform.arbitalhealth.com/api/v1
+      status: 401
+      note: '{"error":"Unauthorized"}'
+    - url: https://platform.arbitalhealth.com/api/openapi.json
+      status: 401
+      note: '{"error":"Unauthorized"} — no anonymous spec'
+  properties:
+  - type: Login
+    url: https://platform.arbitalhealth.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +69,64 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://arbitalhealth.com
+- type: Blog
+  url: https://arbitalhealth.com/blog
+- type: BlogRSS
+  url: https://arbitalhealth.com/blog/rss.xml
+- type: PrivacyPolicy
+  url: https://arbitalhealth.com/privacy-policy
+- type: Login
+  url: https://platform.arbitalhealth.com/
+- type: Careers
+  url: https://arbitalhealth.com/careers
+- type: LinkedIn
+  url: https://www.linkedin.com/company/arbital-health/
+- type: Twitter
+  url: https://twitter.com/arbitalhealth
+- type: TrustCenter
+  url: security/arbital-health-trust-center.yml
+- type: Compliance
+  url: https://security.arbitalhealth.com/
+- type: Security
+  url: https://security.arbitalhealth.com/
+- type: VulnerabilityDisclosure
+  url: security/arbital-health-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/arbital-health-domain-security.yml
+- type: WellKnown
+  url: well-known/arbital-health-well-known.yml
+- type: Authentication
+  url: authentication/arbital-health-authentication.yml
+- type: OAuthScopes
+  url: scopes/arbital-health-scopes.yml
+- type: Conformance
+  url: conformance/arbital-health-conformance.yml
+- type: LLMsTxt
+  url: llms/arbital-health-llms.txt
+x-enrichment:
+  date: '2026-08-06'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Arbital Health runs a real JSON API at platform.arbitalhealth.com/api — /api/health
+    answers 200 — but every resource path, including /api/openapi.json, returns 401
+    {"error":"Unauthorized"} to an anonymous caller, and no developer portal, API
+    reference or spec exists anywhere on the marketing site (arbitalhealth.com is a
+    13-page HubSpot CMS site with no /docs, /developers or /api route).
+  evidence:
+  - url: https://platform.arbitalhealth.com/api/health
+    status: 200
+  - url: https://platform.arbitalhealth.com/api/openapi.json
+    status: 401
+  - url: https://arbitalhealth.com/openapi.json
+    status: 404
+  - url: https://arbitalhealth.com/developers
+    status: 404
+  - url: https://auth.arbitalhealth.com/.well-known/openid-configuration
+    status: 200
+  checked: '2026-08-06'
