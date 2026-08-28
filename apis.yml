@@ -12,6 +12,17 @@ description: 'Arbital Health is a healthcare technology and actuarial-services c
   on the acquired Santa Barbara Actuaries team. The company launched in 2024, raised
   a $10M Series A led by Transformation Capital, and holds SOC 2 Type 2 and HITRUST
   i1 certification.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://44728686.fs1.hubspotusercontent-na1.net/hubfs/44728686/Arbital_Logo_Full_Color_KO_rgb_022124.png
 url: https://raw.githubusercontent.com/api-evangelist/arbital-health/refs/heads/main/apis.yml
 x-type: company
