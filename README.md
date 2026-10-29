@@ -64,23 +64,96 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Arbital Health builds the neutral third-party infrastructure for adjudicating outcomes-based
-(value-based care) contracts between payers, providers, employers, risk-bearing entities and
-point-solution vendors. Its platform centralizes risk contracts, ingests and validates claims and
-eligibility data, runs actuarial calculations (IBNR, MLR, benchmarks, attribution), predicts and
-monitors contract performance, and adjudicates settlement between the parties.
+Arbital Health is a healthcare technology and actuarial-services company building the neutral third-party infrastructure for adjudicating outcomes-based (value-based care) contracts between payers, providers, employers, risk-bearing entities and point-solution vendors. Its cloud platform centralizes risk contracts, ingests and validates claims and eligibility data, runs actuarial calculations (IBNR, MLR, benchmarks, attribution), predicts and monitors contract performance, and adjudicates settlement between the parties. Product lines include the Adjudication Platform, ATLAS, Merlin AI, and Arbital Flex — a self-serve actuarial AI tool for payors and providers — alongside a traditional actuarial consulting practice built on the acquired Santa Barbara Actuaries team. The company launched in 2024, raised a $10M Series A led by Transformation Capital, and holds SOC 2 Type 2 and HITRUST i1 certification.
 
-- Website: https://arbitalhealth.com
-- Platform login: https://platform.arbitalhealth.com/
-- Security trust center: https://security.arbitalhealth.com/
+**Areas:** Company · Healthcare · Health Insurance · Value-Based Care · Actuarial · Claims · Payers · Providers · Analytics · Artificial Intelligence
 
-## API surface
+## Arbital Health on APIs.io
 
-Arbital Health publishes **no public developer program** — no developer portal, no API reference,
-and no machine-readable contract (OpenAPI, AsyncAPI, GraphQL SDL, or Postman collection) at any
-public URL. A real JSON API exists behind the customer platform: `https://platform.arbitalhealth.com/api`
-answers `401 {"error":"Unauthorized"}` on every resource path (only `/api/health` is anonymously
-readable, `200`), with access brokered through a PropelAuth-backed OpenID Connect tenant at
-`https://auth.arbitalhealth.com`.
+Everything profiled for Arbital Health is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/arbital-health/](https://apis.io/providers/arbital-health/)** — or go straight to one of the APIs or properties below.
 
-See `apis.yml` → `x-coverage` for the probed evidence.
+### APIs (1)
+
+- [Arbital Health Platform API](https://apis.io/apis/arbital-health/platform-api/) — The JSON API behind the Arbital Health adjudication platform at platform.arbitalhealth.com. Observed live and returning JSON, but every resource path…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Arbital Health Authentication](https://apis.io/security/arbital-health/arbital-health-authentication/)
+- [Arbital Health Domain Security](https://apis.io/security/arbital-health/arbital-health-domain-security/)
+- [Arbital Health Trust Center](https://apis.io/security/arbital-health/arbital-health-trust-center/)
+- [Arbital Health Vulnerability Disclosure](https://apis.io/security/arbital-health/arbital-health-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Arbital Health Scopes](https://apis.io/scopes/arbital-health/arbital-health-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://arbitalhealth.com)
+- [Blog](https://arbitalhealth.com/blog)
+- [Security](https://security.arbitalhealth.com/)
+- [Compliance](https://security.arbitalhealth.com/)
+- [Privacy policy](https://arbitalhealth.com/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 23.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 32.9 |
+
+**Agent readiness 10.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 40.2** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/arbital-health/](https://apis.io/providers/arbital-health/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Arbital Health: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/arbital-health/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
